@@ -75,3 +75,24 @@ exam %>% arrange(math)
 exam %>% arrange(desc(math))
 head(exam) %>% arrange(math)
 exam %>% arrange(class, math)
+
+
+# p.141 혼자 풀어보기
+mpg <- as.data.frame(ggplot2::mpg)
+dim(mpg)
+head(mpg)
+mpg_audi <- mpg %>% filter(manufacturer == 'audi')
+mpg_audi %>% arrange(desc(hwy)) 
+head(mpg_audi,5)s
+
+# 6-5 파생변수 추가하기
+exam %>% 
+  mutate(total = math, english, science) %>% head
+
+exam %>% 
+  mutate(total = math + english + science,
+         mean = (math + english + science)/3) %>%
+  head
+
+exam %>% 
+  mutate(test = ifelse(science >= 60, 'pass','fail')) %>% head
